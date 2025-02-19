@@ -1,11 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { ArrowRight, Loader2 } from "lucide-react";
-import {
-  checkEnroll,
-  enroll,
-  removeFromMyCourses,
-} from "../_lib/data-services";
+import { ArrowRight, Loader2, X } from "lucide-react";
+import { checkEnroll, enroll } from "../_lib/data-services";
+import { removeFromMyCourses } from "../_lib/actions";
 import Swal from "sweetalert2";
 import Link from "next/link";
 
@@ -88,13 +85,23 @@ export default function CourseCard({
   }
 
   return (
-    <div className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+    <div className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative">
       <div className="relative">
         <img
           src={imageUrl}
           alt={name}
           className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
         />
+
+        {/* Small "X" button for enrolled courses */}
+        {isEnrolled && (
+          <button
+            onClick={handleEnroll}
+            className="absolute top-3 right-3 bg-black bg-opacity-50 text-white rounded-full p-1.5 transition-opacity duration-300 opacity-50 hover:opacity-100"
+          >
+            <X size={16} />
+          </button>
+        )}
       </div>
 
       <div className="p-5">

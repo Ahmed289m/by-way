@@ -8,9 +8,7 @@ const Footer = () => {
         <div className="space-y-4 sm:col-span-2 lg:col-span-1">
           <div className="flex items-center space-x-2">
             <GraduationCap className="h-8 w-8 text-blue-600" />
-            <span className="ml-2 text-xl font-bold text-white-900">
-              Material
-            </span>
+            <span className="ml-2 text-xl font-bold text-white-900">ByWay</span>
           </div>
           <p className="text-sm sm:text-base max-w-md lg:max-w-xs">
             Empowering learners through accessible and engaging online
@@ -60,7 +58,7 @@ const Footer = () => {
                 href="#"
                 className="hover:text-white transition-colors duration-200 text-sm sm:text-base inline-block"
               >
-                Level 1
+                Level One
               </a>
             </li>
             <li>
@@ -68,7 +66,7 @@ const Footer = () => {
                 href="#"
                 className="hover:text-white transition-colors duration-200 text-sm sm:text-base inline-block"
               >
-                Level 2
+                Level Two
               </a>
             </li>
             <li>
@@ -76,7 +74,7 @@ const Footer = () => {
                 href="#"
                 className="hover:text-white transition-colors duration-200 text-sm sm:text-base inline-block"
               >
-                Level 3
+                Level Three
               </a>
             </li>
             <li>
@@ -84,7 +82,7 @@ const Footer = () => {
                 href="#"
                 className="hover:text-white transition-colors duration-200 text-sm sm:text-base inline-block"
               >
-                Level 4
+                Level Four
               </a>
             </li>
           </ul>
@@ -94,16 +92,14 @@ const Footer = () => {
         <div className="space-y-4">
           <h3 className="text-white font-semibold text-lg">Contact Us</h3>
           <div className="space-y-3">
-            <p className="text-sm sm:text-base">
-              Address: 123 Main Street, Anytown, CA 12345
-            </p>
+            <p className="text-sm sm:text-base">Cairo, Egypt</p>
             <p className="flex items-center gap-2 text-sm sm:text-base">
               <Phone className="flex-shrink-0" size={16} />
-              Tel: +1 (123) 456-7890
+              +201011987886
             </p>
             <p className="flex items-center gap-2 text-sm sm:text-base">
               <Mail className="flex-shrink-0" size={16} />
-              Mail: byway.edu@webblui.in
+              ahmedsalamaeltork@gmail.com
             </p>
             <div className="flex flex-wrap gap-4 mt-6">
               <a

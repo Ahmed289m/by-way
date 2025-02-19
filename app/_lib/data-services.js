@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { supabase } from "./supabase";
 
 export async function getCoursesByLevel(id) {
@@ -96,20 +97,6 @@ export async function checkEnroll(userId, courseId) {
     .single();
 
   return data;
-}
-
-export async function removeFromMyCourses(userId, courseId) {
-  const { error } = await supabase
-    .from("enrollments")
-    .delete()
-    .eq("student_id", userId) // Ensure correct column name
-    .eq("course_id", courseId); // Ensure correct course filtering
-
-  if (error) {
-    console.error("Error unenrolling:", error);
-    return false;
-  }
-  return true;
 }
 
 export async function getStudentEnrollments(studentId) {

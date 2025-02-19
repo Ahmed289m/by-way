@@ -36,23 +36,29 @@ async function Level({ params }) {
       </div>
 
       {/* Course List */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6 px-10 pt-5">
-        {courses.map((course) => {
-          return (
-            <CourseCard
-              name={course.course_name}
-              department={course.dep_name}
-              level={level.cat_name}
-              imageUrl={course.course_img}
-              description={course.course_des}
-              key={course.id}
-              color={level.cat_color}
-              courseId={course.id}
-              userId={userId?.id || null}
-            />
-          );
-        })}
-      </div>
+      {courses.length == 0 ? (
+        <h2 className="text-center text-xl font-semibold text-gray-700 mb-3 mt-10">
+          No Courses Available For This Level !
+        </h2>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6 px-10 pt-5">
+          {courses.map((course) => {
+            return (
+              <CourseCard
+                name={course.course_name}
+                department={course.dep_name}
+                level={level.cat_name}
+                imageUrl={course.course_img}
+                description={course.course_des}
+                key={course.id}
+                color={level.cat_color}
+                courseId={course.id}
+                userId={userId?.id || null}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { GraduationCap, LogOut, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { signOutAction } from "../_lib/actions";
 
 export default function Navbar({ session }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +17,7 @@ export default function Navbar({ session }) {
             <Link className="flex-shrink-0 flex items-center" href="/">
               <GraduationCap className="h-8 w-8 text-blue-600 transition-colors duration-200" />
               <span className="ml-2 text-xl font-bold text-gray-900">
-                Material
+                ByWay
               </span>
             </Link>
             <div className="hidden md:ml-6 md:flex md:space-x-8">
@@ -54,9 +55,9 @@ export default function Navbar({ session }) {
                   className="h-10 mr-5 rounded-full border-2 border-blue-500 shadow-md transition-transform duration-200 hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <Link href="/api/auth/signout" className="text-blue-500">
+                <button onClick={signOutAction} className="text-blue-500">
                   <LogOut />
-                </Link>
+                </button>
               </>
             ) : (
               <Link

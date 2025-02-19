@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Material",
+  title: "ByWay",
   description: "FCIS Materials",
 };
 

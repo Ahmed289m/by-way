@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { auth } from "./auth";
+import { auth, signOut } from "./auth";
 import { supabase } from "./supabase";
 
 export async function createLecture(newLecture) {
@@ -111,4 +111,25 @@ export async function deleteLectureMaterial(materialId, lectureId, courseId) {
   }
 
   revalidatePath(`/enrollments/${courseId}/${lectureId}}`);
+}
+
+export async function signOutAction() {
+  await signOut({
+    redirectTo: "/",
+  });
+}
+
+export async function removeFromMyCourses(userId, courseId) {
+  const { error } = await supabase
+    .from("enrollments")
+    .delete()
+    .eq("student_id", userId) // Ensure correct column name
+    .eq("course_id", courseId); // Ensure correct course filtering
+
+  if (error) {
+    console.error("Error unenrolling:", error);
+    return false;
+  }
+  revalidatePath("/enrollments");
+  return true;
 }

@@ -15,7 +15,7 @@ export default function LectureItem({ lecture, isAdmin }) {
       className="bg-white p-6 rounded-lg shadow-md flex justify-between items-center"
     >
       <div>
-        <h3 className="text-2xl  font-semibold text-blue-600">
+        <h3 className="text-2xl font-semibold text-blue-600">
           {lecture.lecture_title}
         </h3>
         <p className="text-gray-600">{lecture.lecture_desc}</p>
@@ -24,10 +24,12 @@ export default function LectureItem({ lecture, isAdmin }) {
         <div className="flex gap-2">
           <button
             className="text-blue-500 hover:text-blue-600"
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation(); // Prevent Link click
+              event.preventDefault(); // Prevent navigation
+
               setIsEditing((e) => !e);
               setFormOpen((f) => !f);
-
               setLecture(lecture);
             }}
           >
@@ -35,7 +37,10 @@ export default function LectureItem({ lecture, isAdmin }) {
           </button>
           <button
             className="text-red-500 hover:text-red-600"
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation(); // Prevent Link click
+              event.preventDefault(); // Prevent navigation
+
               Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -54,7 +59,7 @@ export default function LectureItem({ lecture, isAdmin }) {
                         text: "The lecture has been successfully deleted!",
                       });
                     })
-                    .catch((error) => {
+                    .catch(() => {
                       Swal.fire({
                         icon: "error",
                         title: "Error",
