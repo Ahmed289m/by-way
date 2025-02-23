@@ -130,9 +130,12 @@ export default function Navbar({ session }) {
                 </Link>
               </div>
             ) : (
-              <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition-all duration-200 transform hover:scale-105">
+              <Link
+                href="/api/auth/signin"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition-all duration-200 transform hover:scale-105"
+              >
                 Get started
-              </button>
+              </Link>
             )}
           </div>
         </div>
